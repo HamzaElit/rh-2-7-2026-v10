@@ -1,0 +1,295 @@
+@import "../mixins/mixins-master";
+
+.rn-exclusive-benefits {
+  padding-block: var(--block-gap);
+  background-color: var(--Secondary-3);
+
+  // ── Title ──────────────────────────────────────────────────────────────────
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--Black);
+    margin-bottom: 2.4rem;
+
+    @include md-up {
+      font-size: 3.2rem;
+      margin-bottom: 3.2rem;
+    }
+
+    @include lg-up {
+      font-size: 4rem;
+    }
+
+    em {
+      font-style: italic;
+      color: var(--Secondary-2);
+    }
+  }
+
+  // ── TABS LAYOUT (md-up) ────────────────────────────────────────────────────
+  &__layout {
+    display: none;
+
+    @include md-up {
+      display: flex;
+      gap: 1.6rem;
+    }
+
+    @include lg-up {
+      gap: 3.2rem;
+    }
+  }
+
+  &__tabs-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    flex-shrink: 0;
+    flex: 0 0 51%;
+    @include lg-up {
+      flex: 0 0 40.5%;
+      width: 56.8rem;
+    }
+  }
+
+  &__tab {
+    width: 100%;
+    text-align: left;
+    padding: 1.2rem 2rem;
+    font-family: var(--font-text);
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--Secondary-2);
+    background-color: transparent;
+    border: 1px solid var(--Secondary-2);
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+
+    @include lg-up {
+      font-size: 2.2rem;
+    }
+
+    &.active {
+      background-color: var(--Secondary-2);
+      color: var(--White);
+      border-color: var(--Secondary-2);
+    }
+
+    @include hover {
+      background-color: var(--Secondary-2);
+      color: var(--White);
+    }
+  }
+
+  // ── Panels ─────────────────────────────────────────────────────────────────
+  &__panels {
+    min-height: 100%;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  &__panel {
+    display: none;
+    background-color: var(--Secondary-2);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    animation: ebFadeIn 0.35s ease;
+    min-height: 100%;
+    @include lg-up {
+      border-radius: 2rem;
+    }
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+
+      @include lg-up {
+        align-items: center;
+        gap: 3.2rem;
+        padding: 3.2rem;
+      }
+      @include xl-up {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__panel-img {
+    width: 100%;
+    padding: 1.6rem 1.6rem 0;
+
+    @include lg-up {
+      padding: 0;
+      width: auto;
+      flex-shrink: 0;
+      flex: 0 0 48%;
+      border-radius: 1.2rem;
+      overflow: hidden;
+    }
+
+    picture {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+
+      @include lg-up {
+        border-radius: 1.2rem;
+        aspect-ratio: 318 / 360;
+        object-position: center;
+      }
+    }
+  }
+
+  &__panel-text {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include lg-up {
+      padding: 0;
+      gap: 1.6rem;
+      flex: 1 1 0;
+    }
+  }
+
+  &__panel-headline {
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--Secondary);
+
+    @include lg-up {
+      font-size: 2.6rem;
+    }
+  }
+
+  &__panel-body {
+    font-family: var(--font-text);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--Secondary-3);
+
+    @include lg-up {
+      font-size: 1.8rem;
+    }
+  }
+
+  // ── SLIDER LAYOUT (mobile only) ──────────────────────────────────────────
+  &__slider {
+    display: block; // Visible on mobile
+
+    @include md-up {
+      display: none; // Hidden on tablet/desktop where Tabs take over
+    }
+
+    .embla__viewport {
+      overflow: hidden;
+      border-radius: 1.2rem;
+    }
+
+    .embla__slide {
+      // By default embla classes handle 100% width and spacing, but customize if needed
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+  }
+
+  &__slide-card {
+    background-color: var(--Secondary-2);
+    border-radius: 1.2rem;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.6rem;
+  }
+
+  &__slide-img {
+    width: 100%;
+
+    picture,
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+  }
+
+  &__slide-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__slide-title {
+    font-family: var(--font-text);
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--Secondary);
+  }
+
+  &__slide-body {
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--Secondary-3);
+  }
+
+  &__slider-nav {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.6rem;
+    align-items: center;
+
+    .embla__button {
+      background: transparent;
+      border: none;
+      width: auto;
+      height: auto;
+      padding: 0;
+      color: var(--Secondary-2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        display: block;
+        width: 2.4rem;
+        height: 2.4rem;
+        stroke: currentColor;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@keyframes ebFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
