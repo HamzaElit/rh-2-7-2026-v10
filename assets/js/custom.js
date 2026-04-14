@@ -105,19 +105,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ── rn-gallery: pause on hover ──────────────────────────────────────────
-  (function () {
-    var orbit = document.querySelector(".rn-gallery__orbit");
-    if (!orbit) return;
-    var circle = orbit.querySelector(".rn-gallery__circle");
-    if (!circle) return;
+  // (function () {
+  //   var orbit = document.querySelector(".rn-gallery__orbit");
+  //   if (!orbit) return;
+  //   var circle = orbit.querySelector(".rn-gallery__circle");
+  //   if (!circle) return;
 
-    orbit.addEventListener("mouseenter", function () {
-      circle.style.animationPlayState = "paused";
-    });
-    orbit.addEventListener("mouseleave", function () {
-      circle.style.animationPlayState = "running";
-    });
-  })();
+  //   orbit.addEventListener("mouseenter", function () {
+  //     circle.style.animationPlayState = "paused";
+  //   });
+  //   orbit.addEventListener("mouseleave", function () {
+  //     circle.style.animationPlayState = "running";
+  //   });
+  // })();
 
   // Import EmblaCarousel from the appropriate module
 
